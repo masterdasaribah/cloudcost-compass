@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Optional
 
 class ComputeCompareRequest(BaseModel):
     region: str = Field(..., example="us-east-1")
@@ -19,7 +19,7 @@ class ComputePriceResult(BaseModel):
     monthly_price: float
     currency: str
     match_quality: str
-    notes: str | None = None
+    notes: Optional[str] = None
 
 class ComputeCompareResponse(BaseModel):
     request: ComputeCompareRequest
